@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo1">Each for is a method which call a function once for each element in an array , in order</p>
+    <p></p>
+    <p>List of items along with their index</p>
+    <p id="demo2"></p>
+</body>
+<script>
+    let array = [2 , 5 , 7 , 10];
+    let sum = 0;
+    array.forEach(myFunction);
+    array.forEach(anotherFunction);
+
+    function myFunction (item)
+    {
+        sum+=item;
+        document.getElementById('demo1').innerHTML = sum; // showing sum into the html file
+
+    }
+
+    function anotherFunction( item , index)
+    {
+        document.getElementById('demo2').innerHTML += index + ':' + item + '<br>';
+    }
+    let myJson = {
+        'names' : {}
+    }
+</script>
+</html>

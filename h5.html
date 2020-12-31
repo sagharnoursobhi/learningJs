@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+         <div>  
+            <span>
+                <label for="">Students Name</label>
+                <input type="text" id="name">
+            </span>
+            <span>
+                <label for="">Students Score</label>
+                <input type="text" id="score">
+            </span>
+        </div><!--div tag is used as a container for html elements-->
+        <div>
+            <button type="button" id="btn1">add</button>
+            <button type="button" id="btn2">calculate average</button>
+        </div>
+    </form>
+    <script>
+        let students = [];
+        document.querySelector('#btn1').addEventListener('click' , ()=>
+        {
+            let name = document.querySelector('#name').value;
+            let score = document.querySelector('#score').value;
+            let student = {
+                'score' : score
+                 ,'name' : name
+                 };
+                 students.push(student);
+                 document.querySelector('#name').value = '';
+                 document.querySelector('#score').value = '';
+        })
+        
+        document.querySelector('#btn2').addEventListener('click' , ()=> 
+        {
+        avg();
+        minimum();
+        maximum();
+        });
+
+        function avg()
+        {
+            let total = 0;
+            for(let i = 0; i <students.length; i++)
+            {
+                total+= + students[i].score;
+            }
+            console.log ('Average is : ' + (total/students.length));
+        };
+
+        function minimum()
+        {
+            let min = students [0];
+            for (let i = 1; i<students.length; i++)
+            {
+                if (students[i].score < min.score)
+                {
+                    min.score = students[i].score
+                }
+            }
+            console.log('Minimum is : ' + min.name+ ' ' + 'Score is :' + min.score );
+        }
+
+        function maximum()
+        {
+            let max = students[0];
+            for(let i=1; i<students.length; i++)
+            {
+                if (students[i].score > max)
+                {
+                    max.score = students[i].score;
+                }
+                console.log('Maximum is : ' + max.name + ' ' + 'Score is : ' + max.score);
+            }
+        }
+    </script>
+</body>
+</html>

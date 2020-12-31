@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            max-width: 900;
+            margin: auto;
+        }
+        table {
+            text-align: center;
+            width: 100%;
+        }
+        td {
+            padding: 20px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div>
+                <table id="table">
+                    <tbody id="tbody">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div>
+                <span>
+                    <label for="">First name</label>
+                    <input type="text" id="in1">
+                </span>
+            </div>
+            <div>
+                <span>
+                    <label for="">Sure name</label>
+                    <input type="text" id="in2">
+                </span>
+            </div>
+            <div>
+                <span>
+                    <label for="">Identification Number</label>
+                    <input type="number" id="in3">
+                </span>
+            </div>
+            <div>
+                <span>
+                    <label for="">Email</label>
+                    <input type="text" id="in4">
+                </span>
+            </div>
+            <div>
+                <span>
+                    <label for="">Phone number</label>
+                    <input type="number" id="in5">
+                </span>
+            </div>
+            <button type="button" id="btn1">Save Data</button>
+        </form>
+    </div>
+    <script>
+        let users = [];
+
+        document.querySelector('#btn1').addEventListener('click' , ()=>
+        {
+            let firstName = document.getElementById('in1').value;
+            let familyName = document.getElementById('in2').value;
+            let idNum = document.getElementById('in3').value;
+            let email = document.getElementById('in4').value;
+            let phone = document.getElementById('in5').value;
+            let user = {
+                'firstname' : firstName,
+                'familyname' : familyName,
+                'idnumber' : idNum,
+                'email' : email,
+                'phone' : phone,
+            }
+            users.push(user);
+            document.getElementById('in1').value = '';
+            document.getElementById('in2').value = '';
+            document.getElementById('in3').value = '';
+            document.getElementById('in4').value = '';
+            document.getElementById('in5').value = '';
+            console.log(user);
+            const tr = `
+            <tr>
+                <td>${user.firstname}</td>
+                <td>${user.familyname}</td>
+                <td>${user.idnumber}</td>
+                <td>${user.email}</td>
+                <td>${user.phone}</td>
+                
+            </tr>
+            `;
+            console.log(tr);
+            document.getElementById('tbody').innerHTML += tr
+            savedData();
+        })
+
+            function savedData()
+            {
+                const data = JSON.stringify(users);
+                localStorage.setItem('savedData', data);
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="text-align: center; color: #ff0099;">
+        Learning creating different html tags into a js tag
+    </h2>  
+    <button id="btn1">button1</button>
+    <button id="btn2">button2</button>
+    <button id="btn3">button3</button>
+    <button onclick="image1()">image</button>
+    <p></p>
+    <form action="">
+        <input type="number" id="i1">
+        <button type="button" id="b1">click1</button>
+        <button type="button" id="b2">click2</button>
+    </form>
+    <script>
+        var canvas1=document.createElement('canvas');
+        canvas1.width=350;
+        canvas1.height=500;
+        var ctx=canvas1.getContext('2d');
+        ctx.font='30px cursive';
+        ctx.fillText('hello canvas!',50,50);//don't use equality sign after filltext
+        document.body.appendChild(canvas1);
+        
+        document.querySelector('#btn1').addEventListener('click',()=>{
+            alert('hello');
+        });
+        
+        document.querySelector('#btn2').addEventListener('click',()=>{
+            alert('bye');
+        });
+        
+        document.getElementById('btn3').addEventListener('click',()=>{
+            alert('hello and bye');
+        });
+        
+        // document.querySelector('#img1').addEventListener('click',()=>{
+        //     var image= document.createElement('img');
+        //     image.src='Google-logo.png';
+        //     document.body.appendChild('image');
+        //     link(image);
+        //  });
+        function image1()
+        {
+        var a1= document.createElement('a');
+        a1.href= 'https://google.com';
+        var image= document.createElement('img');
+        image.src='Google-logo.png';
+        //var image= document.getElementById('dv1').getElementsByTagName('div')[0];
+        a1.appendChild(image);
+        document.body.appendChild(a1);
+        }
+        // function create(){
+        // var link=document.createElement('a');
+        //     //link.type=img;
+        //     link.href='h2.html';
+        //     document.body.appendChild(link);    
+        // }
+        document.querySelector('#b1').addEventListener('click', ()=>
+        {
+            var number= document.getElementsByTagName('input')[0].value;
+
+            for (let i=0; i<=number; i++)
+            {
+                if (isEven(i) === true)
+                {
+                    console.log(i);
+                }
+            }
+        });
+
+        document.querySelector('#b2').addEventListener('click', ()=>
+        {
+            var number= document.getElementsByTagName('input')[0].value;
+
+            for (let i=0; i<=number; i++)
+            {
+                if (isEven(i) === false)
+                {
+                    console.log(i);
+                }
+            }
+        });
+
+        function isEven(num)
+        {
+            if (num % 2 ===0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

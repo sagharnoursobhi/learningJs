@@ -1,2 +1,0 @@
-# learningJs
-test

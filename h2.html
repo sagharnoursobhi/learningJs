@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1 style="font-family: cursive; color: blueviolet; text-align: center;">
+    HELLO TRICKY JAVA SCRIPT!
+</h1>
+<p id="text"></p>
+<div id="container">
+    <form action="">
+        <div id="E&O">
+            <label for="">
+                number
+            </label>
+            <input type="number" id="num">
+            <button id="btn1" type="button">click</button>
+            <p id="list1"></p>
+            <p id="list2"></p>
+        </div>
+    </form>
+    <form action="">
+        <div>
+            <label for="">name</label>
+            <input type="text" id="name">
+            <label for="">score</label>
+            <input type="number" id="score">
+            <button id="btn2" type="button">Add Students</button>
+            <button type="button" id="btn3">Average</button>
+            <p id="av"></p>
+        </div>
+    </form>
+</div>
+<p id="par"></p>
+<p id="par2"></p>
+<p id="par3"></p>
+<script>
+    let text = 'gfgfgfgfgfg';
+    console.log(text.length);
+    // document.body.innerHTML = text + text.length + 'hkhkhkhk';
+    let y = 'ali ahmad hasan';
+    console.log(y.indexOf('ahmad'));
+    console.log(y.search('m'));
+    console.log(y.slice(4,9));
+    console.log(y.replace('ali' , 'ahmad'));
+    document.getElementById('text').innerHTML = y.toUpperCase();
+    console.log(y.concat(' ',text));
+    console.log(y + ' ' + text);//lines 23 and 24 do the same work !
+    console.log(y.trim());
+    document.querySelector('#btn1').addEventListener('click' , ()=> {
+        let number = document.getElementById('num').value;
+        if (number % 2 == 0)
+        {
+            document.querySelector('#list1').innerHTML = 'an even number is added :'+ ' ' + number + ',';
+        }
+        else
+        {
+            document.querySelector('#list2').innerHTML = 'an odd number added :' + ' ' + number + ',';
+        }
+    });
+    let myObject = {name:'saghar',
+    familyname:'noursobhi'
+    };
+    let myJson = JSON.stringify(myObject);
+    localStorage.setItem('setJSON1',myJson);//storing as a json on local storage
+    let str = localStorage.getItem('setJSON1');
+    let obj = JSON.parse(str);
+    document.getElementById('par').innerHTML = obj.name + "<br>" + obj.familyname;
+    let myObj2 = {
+    name:'ali',
+    family:'nour',
+    age:25,
+    field:'medicine'
+    };
+    let myJson2 = JSON.stringify(myObj2);
+    localStorage.setItem('setJSON2' , myJson2);
+    let str2 = localStorage.getItem('setJSON2');
+    let obj2 = JSON.parse(str2);
+    // document.getElementById('par2').innerHTML = obj2.family;
+    let json = {"name" : "saghar" , "family":"salehi" , "field":"null"};
+    document.getElementById('par2').innerHTML = json.family;
+    // let allStudents = [];
+    // document.querySelector('#btn2').addEventListener('click' , ()=>{
+    //     const score = document.querySelector('#score').value;
+    //     const name = document.querySelector('#name').value;
+    //     const student = {
+    //         'name' : name ,
+    //         'score' : score
+    //     };
+    //     allStudents.push(student);
+    //     document.querySelector('#score').value = '';
+    //     document.querySelector('#name').value = '';
+    // });
+    //  document.querySelector('#btn3').addEventListener('click' , ()=>
+    //  {
+    //      let total = 0;
+    //      for (let i = 0; i<=allStudents.length; i++)
+    //      {
+    //          total += +allStudents[i].score;
+    //      }
+    //     console.log(total/allStudents.length);
+    //  });
+        let x = document.getElementById('par3');
+        getLocation;
+        function getLocation()
+        {
+            if (navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else
+            {
+                x.innerHTML = 'Geolocation is not supported by this browser';
+            }
+        }
+        function showPosition(position)
+        {
+            x.innerHTML = 'latitude:' + position.coords.latitude + '<br>' +
+            'longtitude:' + position.coords.longtitde;
+        }
+</script>
+</body>
+</html>

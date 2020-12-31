@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+    <button id="btn1" type ="button">button1</button>
+    <button id="btn2" type="button">button2</button>
+    <button onclick="window.print()">button3</button>
+    <button id="btn3" type="button">button4</button>
+    <p id="demo">hello world</p>
+    <p id="demo2">who is he?</p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    </form>
+    <script>
+        // document.getElementById('demo').innerHTML = 'hello java script';
+        document.querySelector('#btn1').addEventListener('click' , ()=>{
+            document.getElementById('demo').innerHTML = 'paragraph changed';
+        })
+        let paragraph = document.createElement('p');
+        paragraph.innerHTML = 'second paragraph';
+        document.body.appendChild(paragraph);
+        document.getElementById('btn2').addEventListener('click' , ()=>{
+            window.alert(5+6);
+        })
+        // document.getElementById('demo2').innerHTML = 'Hello' + ' ' + 'Adam' + ' ' + 'Johne';
+        // var x = {name: 'Ali' , family: 'Nour'};
+        var x = 'Ali' + ' ' + 'Nour';
+        var p = document.createElement('p');
+        p.innerHTML = x;
+        document.body.appendChild(p);
+        // var span = document.createElement('span');
+        // span.innerHTML= x.family;
+        // document.body.appendChild(span);
+        let a = 'Sara';
+        let z = 'Nour';
+        document.getElementById('demo3').innerHTML = a + '<br>' + z;
+        let object = {
+            name:['ahmad' , 'ali' , 'hosein']
+            , family : ['nouri' , 'khahe' , 'amiri']
+        };
+        document.getElementById('demo2').innerHTML = object.name[0];
+        // document.getElementById('demo4').innerHTML = power(50);
+        // document.getElementById('demo4').innerHTML = objectOfArray('ali' , 'ahmad');
+        function power (x) {
+            return x * x;
+        }
+        // function objectOfArray(a , b)
+        // {
+        //     x = {name : a , family :'nour'};
+        //     y = {name : b , family : 'sobhi'};
+        //     return x.name + ' ' + x.family + ' ' + y.name + ' ' + y.family;
+        // }
+        
+    </script>
+</body>
+</html>

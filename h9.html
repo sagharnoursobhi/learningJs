@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArroFunctions</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="">Arrow function</label>
+            <button type="button" id="id1">click</button>
+        </div>
+    </form>
+    <script>
+        let autos = [];
+        let carName = ['Benz' , 'Toyota' , 'Optima'];
+        let carModel = [2009 ,  2005 , 2007];
+        let object = {
+            carName ,
+            carModel
+        }
+        document.getElementById('id1').addEventListener('click' , ()=>{
+            let auto ={
+                name : '' ,
+                model : ''
+            };
+             for(i=0; i <=carName.length; i++)
+            {
+             auto.name =object.carName[i];
+             auto.model =object.carModel[i];
+             autos.push(auto);
+            }
+            auto.name = '';
+            auto.model = '';
+            
+        }); 
+    </script>
+</body>
+</html>
