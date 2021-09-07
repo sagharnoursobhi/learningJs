@@ -4,101 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/all.min.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h2 style="text-align: center; color: #ff0099;">
+    <img src="Google-logo.png" class="w3-round-xxlarge" alt="Google-logo">
+    <h2>
         Learning creating different html tags into a js tag
     </h2>  
-    <button id="btn1">button1</button>
-    <button id="btn2">button2</button>
+    <button class="c1" id="btn1">button1</button>
+    <button class="c1" id="btn2">button2</button>
     <button id="btn3">button3</button>
-    <button onclick="image1()">image</button>
+    <button class="c1" onclick="image1()">image</button>
     <p></p>
     <form action="">
-        <input type="number" id="i1">
+        <input class="bg-primary" type="number" id="i1">
         <button type="button" id="b1">click1</button>
         <button type="button" id="b2">click2</button>
+        <p id="demo"></p>
+        <p id="demo2"></p>
     </form>
-    <script>
-        var canvas1=document.createElement('canvas');
-        canvas1.width=350;
-        canvas1.height=500;
-        var ctx=canvas1.getContext('2d');
-        ctx.font='30px cursive';
-        ctx.fillText('hello canvas!',50,50);//don't use equality sign after filltext
-        document.body.appendChild(canvas1);
-        
-        document.querySelector('#btn1').addEventListener('click',()=>{
-            alert('hello');
-        });
-        
-        document.querySelector('#btn2').addEventListener('click',()=>{
-            alert('bye');
-        });
-        
-        document.getElementById('btn3').addEventListener('click',()=>{
-            alert('hello and bye');
-        });
-        
-        // document.querySelector('#img1').addEventListener('click',()=>{
-        //     var image= document.createElement('img');
-        //     image.src='Google-logo.png';
-        //     document.body.appendChild('image');
-        //     link(image);
-        //  });
-        function image1()
-        {
-        var a1= document.createElement('a');
-        a1.href= 'https://google.com';
-        var image= document.createElement('img');
-        image.src='Google-logo.png';
-        //var image= document.getElementById('dv1').getElementsByTagName('div')[0];
-        a1.appendChild(image);
-        document.body.appendChild(a1);
-        }
-        // function create(){
-        // var link=document.createElement('a');
-        //     //link.type=img;
-        //     link.href='h2.html';
-        //     document.body.appendChild(link);    
-        // }
-        document.querySelector('#b1').addEventListener('click', ()=>
-        {
-            var number= document.getElementsByTagName('input')[0].value;
-
-            for (let i=0; i<=number; i++)
-            {
-                if (isEven(i) === true)
-                {
-                    console.log(i);
-                }
-            }
-        });
-
-        document.querySelector('#b2').addEventListener('click', ()=>
-        {
-            var number= document.getElementsByTagName('input')[0].value;
-
-            for (let i=0; i<=number; i++)
-            {
-                if (isEven(i) === false)
-                {
-                    console.log(i);
-                }
-            }
-        });
-
-        function isEven(num)
-        {
-            if (num % 2 ===0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    </script>
+    <button id="b3" type="button">click3</button>
+    <h1 id="car"></h1>
+    <div>
+        <button>btn1</button><button>btn2</button><button>btn3</button>
+    </div>
+    <div class="bt"><span><button>btn4</button></span><button>btn5</button><button>btn6</button></div>
+    <div>
+        <p>hhdh</p>
+        <p>jhjhjh</p>
+    </div>
+    <p>djjdjdj</p>
+    <img src="b.jpeg" alt="coding" width="350px" height="250px">
+    <div style="padding: 10px; width: 340px; text-transform: capitalize;">
+        <h3 style="text-shadow: 2px 2px skyblue; color: slateblue;">Lorem Ipsum</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae nibh eu ante tristique varius quis ac nibh. Pellentesque imperdiet cursus quam bibendum posuere. Sed malesuada bibendum risus ut pharetra. Etiam eu vulputate lacus. Mauris a erat ullamcorper orci pulvinar malesuada eget non turpis. Nullam eu urna id odio lacinia consequat. Curabitur rutrum felis a urna malesuada, eget suscipit risus placerat.
+        </p>
+    </div>
+    <a href="https://google.com" style="text-decoration: none;">Google</a>
+    <script src="plugins/jquery-3.5.1.min.js"></script>
+    <script src="plugins/bootstrap.min.js"></script>
+    <script src="plugins/all.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

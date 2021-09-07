@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="">
+    <style>
+        .control-next-icon{
+    background-image: url('./b.jpeg')
+        }
+    </style>
+    <title>carousel</title>
+</head>
+<body>
+    <div class="container-fluid"  >
+            <div class="row" style="display:flex; flex-direction:row; align-items:center; justify-content:center">
+                <div id="carouselExampleControlsNoTouching" class="carousel slide col-4 " data-bs-touch="false" data-bs-interval="false">
+                <div class="carousel-inner col-6">
+                    <div class="carousel-item active">
+                    <img src="b.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="b.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="b.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+                    <span class="visually-hidden">next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="plugins/jquery-3.5.1.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>   
+    <script>
+        $('.carousel').carousel({
+            interval: 2000,
+            pause:'true',
+            ride:'true',
+            
+        })  
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn-1">click</button>
+    <p>This is a timer</p>
+    <p id="demo"></p>
+    <button id="btn-2">stop timer</button>
+    <form action="">
+        <span>
+            <label for="">enter time in minute</label>
+            <input type="number" id="inp" placeholder="enter...">
+            <button type="button" id="enter">enter</button>
+        </span>
+        <button type="button" id="stop">stop pomodoro</button>
+    </form>
+    <p id="demo2"></p>
+    <p></p>
+    <p></p>
+    <div class="container">
+        <div class="timer"></div>
+
+    </div>
+
+    <script>
+        document.getElementById('btn-1').addEventListener('click' , ()=>{
+            setTimeout(function(){alert('hello world');} , 2000)//inside the setTimeout we have to put a function
+        })
+
+        document.getElementById('btn-2').addEventListener('click' , ()=>{
+            stop();
+        })
+        let myVar = setInterval(myTimer1 , 1000);
+        function myTimer1(){
+            let date = new Date();
+            let timer = date.toLocaleTimeString();
+            document.getElementById('demo').innerHTML = timer;
+        }
+
+        function stop(){
+            clearInterval(myVar)
+        }
+
+        //
+        let interval
+        document.getElementById('enter').addEventListener('click' , ()=>{
+            let time = document.getElementById('inp').value
+            let seconds = time*60 || 0;
+            interval = setInterval(function(){
+                seconds--
+                if(!seconds){
+                    
+                    clearInterval(interval);
+                    alert('oops time is over!')
+                }
+                myTimer2(inter);
+            })
+            
+        })
+
+        function myTimer2(){
+            let date = new Date();
+            let time =date.toLocaleTimeString();
+            document.getElementById('demo2').innerHTML = time
+        }
+
+
+    </script>
+</body>
+</html>

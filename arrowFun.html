@@ -1,20 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-  <h1>Introduction of arrow function</h1>
-  <p>Arrow function is used for short syntax code and usually are not useful for
-    object methods
-  </p>
+  </head>
+  <body>
+    <h1>Introduction of arrow function</h1>
+    <p>
+      Arrow function is used for short syntax code and usually are not useful
+      for object methods
+    </p>
+    <select name="firstSlc" id="slc1" onchange="popular(this.id , 'slc2')">
+      <option value=""></option>
+      <option value="color">Color</option>
+      <!--blue yellow green-->
+      <option value="name">Name</option>
+      <!--Ford BMW Porsche-->
+      <option value="model">Model</option>
+      <!--2012 , 2015 , 2021-->
+    </select>
+    <select name="secondSlc" id="slc2">
+      <!---->
+    </select>
     <script>
-      const myFunction = (x,y) => x * y;
-      console.log(myFunction(5,5)); 
-      let y = (x,y)=> x/y;
-      console.log(y(5,7));
+      const myFunction = (x, y) => x * y;
+      console.log(myFunction(5, 5));
+      let y = (x, y) => x / y;
+      console.log(y(5, 7));
+
+      function popular(s1, s2) {
+        let slc1 = document.getElementById(s1);
+        let slc2 = document.getElementById(s2);
+        let myArray = []
+        slc2.innerHTML = " ";
+        if (slc1.value == "color") {
+           myArray = ["|", "green|Green", "blue|Blue", "yellow|Yellow"];
+        } else if (slc1.value == "name") {
+           myArray = ["|", "bmv|BMW", "ford|Ford" , "porsche|Porsche"];
+        } else if (slc1.value == "model") {
+           myArray = ["|" , "model|2014" , "model|2015" , "model|2018"];
+        }
+
+        for (let element in myArray) {
+          let pair = myArray[element].split("|");
+          let myOption = document.createElement("option");
+          myOption.value = pair[0];
+          myOption.text = pair[1];
+          slc2.add(myOption);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

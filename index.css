@@ -1,0 +1,27 @@
+
+button.c1 {
+    background-color: antiquewhite;
+}
+
+h1,h2{
+    color: blue;
+    
+}
+
+div button{
+    background-color: blueviolet;
+}
+
+div>button{
+    background-color: brown;
+}
+
+div ~ p {
+    background-color: red;
+    margin-left: 2em;
+}
+
+body , h1 , h2 {
+    font-family: Sofia, serif;
+    margin-left: 4em;
+}

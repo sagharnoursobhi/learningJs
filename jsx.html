@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+    <style>
+        a{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p id="id1" class="c1"></p>
+
+    <p>Multiply every element in the array with 10:</p>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="id2"></p>
+    <p id="id3"></p>
+    <a href=""><h1>hello</h1></a>
+    <button type="button" id="btn1">button</button>
+    <button type="button" id="btn2">button1</button>
+    <button type="button" id="btn3">button2</button>
+    <script>
+       let array = [1 , 2 , 4]
+
+       let array2 = array.map(item =>
+        item *= 2
+        // console.log('result: ' + index + ':' + item )
+       );
+
+      array.forEach((item , index)=>{
+          console.log(index + ':' + (item * 2))
+      })
+      console.log(array2)
+
+      var numbers = [65, 44, 12, 4];
+      var newarray = numbers.map((num,index) => 
+        num = num + index)
+
+      document.getElementById("demo").innerHTML = newarray + ' ' + newarray.length;
+      let object = {name:'ali' , family:'ahmadi'}
+      function my_function()
+      {
+          document.getElementById('id2').innerHTML += this
+          
+      }
+    //   let x = ()=>document.getElementById('demo').innerHTML += this
+
+  let hello = function() {
+        return "Hello World!";
+    }
+   document.getElementById('demo1').innerHTML = hello();
+   let array3 = ['n' , 'd']
+   let newArray = array3.map((item )=>{
+     item = item.concat('ali')
+   })
+// console.log(newArray)
+// document.getElementById('id3').innerHTML = newArray
+   let array4 = [{name:'Ali' , family:'Ahmadi'} , {name:'Johne' , family:'Helmi'} , {name:'Stefan' , family:'Sezar'} ]
+    
+   function getFulName(item){
+    let fulname = [item.name , item.family].join(" ")
+    return fulname
+   }
+ document.getElementById('btn3').addEventListener('click' , ()=>{
+    document.querySelector('.c1').innerHTML = array4.map(getFulName)
+
+ })
+  let txt1 =''
+    for (let index = 0; index < array3.length; index++) {
+        txt1 += array3[index]
+        
+    }
+    console.log(txt1)
+
+    let txt2 =''
+    array3.forEach((item , index) =>{
+        txt2 += item
+    })
+
+    console.log(txt2)
+
+    let object2 = {name:'ali' , family:'Ak' , age:'25'};
+
+    let txt3 = '';
+    for(x in object2)
+    {
+        txt3 += object2[x] + ' ';
+    }
+
+    console.log(txt3)
+
+    let object4 ={
+        name: 'Hamid',
+        family:'Ehsani',
+        fulName: function(){
+            return this.name + ' ' + this.family
+        }
+    }
+
+    console.log(object4.fulName())
+
+    function object5(name , family , eye , age){
+        this.givenName = name
+        this.sureName = family
+        this.eyeColor = eye
+        this.age = age
+    }
+
+    let samObject5 = new object5('Ali' , 'hasan' , 'blue' , '56')
+    console.log(samObject5.givenName + ' ' + samObject5.sureName + ' is' + ' ' + samObject5.age)
+
+    class car {
+        constructor(name , model){
+            this.esm = name;
+            this.m = model; 
+        }
+    }
+
+    myCar = new car('Benz' , '2015')
+    console.log(myCar.esm + ' ' + myCar.m)
+
+    setTimeout(() => { alert('hello')
+        
+    }, 1000);
+    
+    </script>
+</body>
+</html>
