@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        let element = document.querySelector('#app');
+        const request = new XMLHttpRequest();
+        request.open('GET' , 'https://randomuser.me/api/')
+        request.send()
+        request.addEventListener('load' , function(){
+            const receive = JSON.parse(this.responseText);
+            console.log(receive)
+            const url = receive.results[0].picture.large
+            element.insertAdjacentHTML('afterbegin' , `<img src = "${url}" />`)
+        })
+
+        //promises and fetching apis are the jsx form of receiving data from apis the result is the same 
+        //const request_sec = fetch('https://randomuser.me/api/')
+        //console.log(request_sec)promise container has not received future value yet
+        const picturesUrls = []
+        const pictures = function(number){
+            fetch(`https://randomuser.me/api/?results=${number}`).then(function(response){
+                console.log(response)//value is not available yet it is only readable
+                return response.json()//takes stream response return the parsing body text as json
+                //another problem is that this json method is also an asynchronous function so it also returns a new promise
+            }).then(function(dataAfterjson){
+                console.log(dataAfterjson)
+                const {results , info} = dataAfterjson
+                console.log(results)
+                results.map(function(item , i){
+                    picturesUrls.push(item.picture)
+                })
+            })
+        }
+
+        pictures(10);
+    </script>
+</body>
+</html>
