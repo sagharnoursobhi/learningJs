@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map&filter&reduce methods</title>
+    <style>
+        .show__hidden{
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+    <form action="" class="show__hidden">
+        <input type="text" class="finput">
+        <input type="number" class="sinput">
+        <button class="btn1">btn</button>
+    </form>
+    <div class="show-info">
+
+    </div>
+    <button type="button" class="btn2">test</button>
+
+    <p></p>
+    <form action="">
+        <input type="text" class="name">
+        <input type="text" class="family">
+        <p></p>
+        <button class="btn-local">newBTN</button>
+    </form>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Family</th>
+            </tr>
+            <tbody class="extended-td"></tbody>
+        </table>
+    </div>
+    
+    
+    
+    <script>
+         const account1 = {
+            owner: 'Jonas Schmedtmann',
+            movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+            interestRate: 1.2, // %
+            pin: 1111,
+    };
+    
+    const account2 = {
+      owner: 'Jessica Davis',
+      movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+      interestRate: 1.5,
+      pin: 2222,
+    };
+    
+    const account3 = {
+      owner: 'Steven Thomas Williams',
+      movements: [200, -200, 340, -300, -20, 50, 400, -460],
+      interestRate: 0.7,
+      pin: 3333,
+    };
+    
+    const account4 = {
+      owner: 'Sarah Smith',
+      movements: [430, 1000, 700, 50, 90],
+      interestRate: 1,
+      pin: 4444,
+    };
+    
+    const accounts = [account1, account2, account3, account4];
+        //ALL THE FUNCTION HERE ARE CALL BACK FUNCTIONS AND CHAINING METHODS
+
+        //map description // map method calls array elements itself and then call back them
+        //EXAMPLE 1
+        const convert = 1.1;
+        const movements= [200, 450, -400, 3000, -650, -130, 70, 1300]
+        // const moveEUtoUSDollar = movements.map(function(mov){
+        //     return mov * covert
+        // })//it is sth like foreach method but it is a call back function that returns a new brand array of previous array
+        const moveEUtoUSDollar = movements.map( move => move * convert)//with arrow function we can even remove return
+        console.log(movements)
+        console.log(moveEUtoUSDollar)
+
+        // EXAMPLE 2
+        // const ballenceDescription = movements.map((move , i , arr)=>{
+        //     if(move > 0)
+        //         return `Movement${i+1} : you deposited ${move}`
+        //     else
+        //         return `Movement ${i + 1} : you withdrawl ${Math.abs(move)}`
+        // })
+        // console.log(ballenceDescription)//it will return an array
+
+        const ballenceDescription = movements.map((move , i , arr)=>
+            `Movement ${i + 1} : You ${move > 0 ? 'deposited' : 'withdrawled'} ${Math.abs(move)}` // with arrow function
+        )
+        console.log(ballenceDescription)
+        console.log('ali'.split(' '))//convert string to array
+        const user = 'Steven Thomas Williams'//getting stw
+        const username = user.toLowerCase().split(' ').map(user=>user[0]).join('')
+        console.log(username)
+
+        const createUserNames = function(user){
+            const username = user.toLowerCase().split(' ').map(user=>user[0]).join('')
+            return(username)
+        } 
+        console.log(createUserNames('Steven Thomas Williams'))
+        const family1 = {name:'John' , family: 'Stephan'}
+        const family2 = {name:'Sara' , family:'Hjag'}
+        const families = [family1 , family2]
+        // id:js , id: sh
+        const createID = function(arrays){
+            arrays.forEach( function(arr){
+                arr.ID = arr.name.concat(',' , arr.family).toLowerCase().split(',').map(defaultArray=> defaultArray[0]).join('')
+            });
+            console.log(arrays)//this structures in arrays is called side effects
+        }
+        createID(families)
+        
+
+        //concat is for merging strings and split breaks the string into an array of substrings
+        name1 = 'ali'
+        name2 = 'hasan'
+        const result = name1.concat(',' ,name2).split(',').map(el=>el[0]).join('')
+        console.log(result)
+
+        //FILTER METHOD WITH A CONDITION
+        // const deposits = movements.filter(function(move){
+        //     return move > 0
+        // })
+        // console.log(deposits)
+        //with arrow function
+        const deposits = movements.filter(move => move > 0)
+        console.log(deposits)//an array of deposits
+        const withdrawls = movements.filter(move => move < 0)
+        console.log(withdrawls)
+
+        //REDUCE METHOD => it returns a single value which is a result of callculation on the whole array values
+        // const balence = movements.reduce(function(acc , mov , i , arr){
+        //     return acc + mov 
+        // } , 0)
+        const balence = movements.reduce((acc , mov , i , arr)=>
+            acc + mov , 0)
+        console.log(balence) //0 is the default value of acc
+        //=== we can also use for of loop but it need an extra variable
+        let sum = 0;
+        for(const move of movements){
+            sum += move
+            
+        }
+        console.log(sum)
+
+        //calculating maximum of movements
+        const calculationMaxValue = function(movements){
+            const max = movements.reduce((accu , move)=>{
+                if(accu > move)
+                return accu//will have the previous value and is not changed
+                else 
+                return move// larger than accu so, this move is returnd and put as a new accu then loop countinues
+                },movements[0])
+                return max
+            }
+        
+        console.log(calculationMaxValue(movements))
+        
+        //chaining all previous methods
+        //calculating all deposits in us dollar.
+
+
+        const totalDepositsToDolar = movements.filter(move => move > 0).map(move => move * convert)
+        .reduce((acc , move) => acc + move , 0)
+
+        console.log(totalDepositsToDolar)
+        //debugging the code blocks incase we don't see the accurate result
+
+        // const totalDepositsToDolar = movements.filter((move , i, arr) => {
+        //     return move < 0
+        // }).map((move , i , arr) => {//checking out the new array came from previous code
+        //     console.log(arr)
+        //     return move * convert
+        // })
+        // .reduce((acc , move) => acc + move , 0)
+        // console.log(totalDepositsToDolar)//if the total value was negative
+
+        //FIND METHOD => RETUNS THE FIRST ELEMENT THAT MATCHES THE CONDITION ≠ FILTER METHOD RETURNS AN ARRAY RESULTED IN CONDITION
+        const firstWithdrawl = movements.find(wit => wit < 0)
+        console.log(movements)
+        console.log(firstWithdrawl)
+
+
+        //finding sth in an account
+            const account = accounts.find(acc => acc.owner === 'Jessica Davis')
+            console.log(account)
+        //end of method
+
+
+            let array1 = [1 , 2 , 3, 4]
+            let nameInput = document.querySelector('.finput')
+            let numberInput = document.querySelector('.sinput')
+            let containerInfo = document.querySelector('.show-info')
+            // containerInfo.innerHTML = ''//will empty the container of html
+            document.querySelector('.btn1').addEventListener('click' , function(e){
+                e.preventDefault()//thats the same when we set the type of btn to button
+                
+                containerInfo.innerHTML += `<p>${nameInput.value}</p>`
+                containerInfo.innerHTML += `<p>${numberInput.value}</p>`
+                numberInput.value = ''
+                nameInput.value = ''
+                
+            })
+
+            document.querySelector('.btn2').addEventListener('click' , function(){
+                showContent(array1)
+            })
+
+            const showContent = function(array){
+                containerInfo.innerHTML = ''
+                array.forEach(function(el , i){
+                    containerInfo.innerHTML += `<p>${i}:${el}</p>`
+                    
+                })
+            }
+
+            //local storage learning 
+            const definedLocalstorage = function(el , i){
+                stringEl = String(el)
+                stringI = String(i)
+                localStorage.setItem(stringI , stringEl)
+            }
+
+            localStorage.setItem('Cat' , 'Tom')
+            const cat = localStorage.getItem('Cat')
+            console.log(cat)
+
+            const names = {
+                name:'ali',
+                family: 'John'
+            }
+            jsonDataStudent = JSON.stringify(names)
+            console.log(jsonDataStudent)
+            console.log(typeof(jsonDataStudent))
+            console.log(JSON.parse(jsonDataStudent))
+        
+            //newBTN with inputs
+            document.querySelector('.btn-local').addEventListener('click' , function(e){
+                e.preventDefault()
+                let students = []
+                let name = document.querySelector('.name').value
+                let family = document.querySelector('.family').value
+                let student = {
+                    'name':name,
+                    'family':family
+                }
+                students.push(student)
+                document.querySelector('.extended-td').innerHTML +=
+                    `<tr>
+                        <td>${student.name}</td>
+                        <td>${student.family}</td>
+                    </tr>`
+                document.querySelector('.name').value = ''
+                document.querySelector('.family').value = ''
+                savedData()
+                
+            })
+            const savedData = function(){
+                console.log('kkkk')
+                let data = JSON.stringify(students)
+                
+                localStorage.setItem('savedData' , students)
+            }
+            document.addEventListener('DOMContentLoaded' , init)
+            const init = function(){
+                let variable = localStorage.getItem('savedData')
+                if(typeof(variable) === 'string'){
+                    document.querySelector('.extended-td').innerHTML = '';
+                    students = JSON.parse(variable)
+                    console.log(typeof(students))
+                    students.forEach(function(student){
+                    const html = `<tr>
+                        <td>${student.name}</td>
+                        <td>${student.family}</td>
+                    </tr>`
+                        document.querySelector('.extended-td').insertAdjacentHTML("afterbegin" , html)
+                    })
+
+                }
+            }
+           
+           
+
+    </script>
+</body>
+</html>

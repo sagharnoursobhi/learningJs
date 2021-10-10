@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array = [1,2,3,4,4]
+        console.log(new Object(array))//with repetetive value
+        console.log(new Set(array))//without repetetive value
+        console.log(typeof(new Set(array)))
+        console.log([new Set(array)])
+        console.log([...new Set(array)])//an array which does not have repetetive values
+        // console.log(new Map([[new Set(array)]]))
+        // console.log(new Map([[...new Set(array)]]))
+        const obj = {
+            name: 'John' , 
+            family: 'Stefen'
+        }
+        console.log([...Object.entries(obj)])//[[name , john] , [family , stefen]]
+        console.log([...new Set([...Object.entries(obj)])])
+        const newMap = new Map([...new Set([...Object.entries(obj)])])
+        console.log(newMap)
+        console.log(new Map([['name' , 'john'] , ['family' , 'stefen']]))
+
+        //forEach for map and set
+
+        newMap.forEach(function(value ,key , map){
+            console.log(`${key}:${value}`)
+        });
+        const newSet = new Set([...Object.entries(obj)])
+        console.log(newSet)
+        newSet.forEach(function(value , _ , map){
+            console.log(`${value}:${value}`)
+        })
+        console.log(new Set([...newMap]))
+        
+        //set of values and keys of obj
+        let elements = []
+        newMap.forEach(function(value , key , map){
+            elements.push(key)
+            elements.push(value)
+        })
+        console.log(elements)
+        console.log(new Set(elements))//set of values and keys of obj//{'name', 'John', 'family', 'Stefen'}
+
+        let newArray = ['a' , 'b' , 'c' , 'd']
+        const setArray = new Set(newArray)
+        setArray.forEach(function(value , _ , map){//because set does not have key
+            console.log(`${value}:${value}`)
+        })
+        
+    </script>
+</body>
+</html>

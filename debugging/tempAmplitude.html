@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tempreture amplitude</title>
+</head>
+<body>
+    <script>
+        //PROBLEM-1
+        //1-understanding the task
+        //2-deviding the task into sub tasks
+        //3-writing pseudo codes(it's not real codes of a language)
+        //we work for a company building a smart home thermometer.our 
+        //most recent tasks is this :"Given an array of tempratures of one day
+        //calculate the temperature amplitute. keep in mind that sometimes there might
+        //be a sensor error "
+        const temperatures = [3 , -2 , -6 , -1 , 'error' , 9, 13, 17, 15, 14, 9, 5 ]
+        //Understanding=> what is amplitude=>difference between highest and lowest temperatures
+        //how to compute max and min temperatures
+        //what is a sensor error and what does it do
+        //sub tasks=>
+        //1-how to ignore errors?
+        //2-find max value in array
+        //3-find min value in array
+        //4-subtract min from max(amplitude) and return it
+        const calculateAmplitute = (array)=>{
+            let result=0;
+            let max = array[0]
+            let min = array[0]
+            for(let i=0; i<array.length; i++){
+                if(typeof(array[i]) != 'number'){continue}
+                if(array[i]>max){
+                     max = array[i]
+                }
+                if(array[i] < min){
+                    min = array[i]
+                }
+                 
+            }
+            console.log(min)
+            console.log(max)
+            result = max - min
+            return(result)
+        }
+
+        console.log(`amplitude is : ${calculateAmplitute(temperatures)}`)
+        //PROBLEM-2
+        // we are going to have two arrays
+        //understanding: should we have to another function? no we just merge them
+        const temperatures2 = [1 , 2 ,42, 'error']
+        const concattemts = temperatures.concat(temperatures2)
+        console.log(`amplitude is : ${calculateAmplitute(concattemts)}`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Immediately invoke function expression IIFE => it is a function expressions which only executes ones
+    //invoke is when a function run automatically however call is when we call a function ourselves
+    //expressions are istructions which return values however statements are instructions that perform or control actions but they don't become values
+    
+    (function(){
+        console.log('It will never run again!')
+        const isPrivate = 23// this data is encapsulated inside this scope and is not accessible in the global scop
+    })();
+
+    (()=>console.log('It will NEVER run again'))();
+
+    //var is different from let
+    {
+        let isPrivate = 20;
+        var isNotPrivate = 30
+    }
+    console.log(isNotPrivate)
+    </script>
+</body>
+</html>

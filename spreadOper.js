@@ -28,6 +28,7 @@ let restaurant = {
             ${address} at ${time}${timeSet(time)}`)
     }
 }
+console.log(restaurant.foodDelivery(1 , 2 ))
 // const newMenu = [...restaurant.mainMenu , 'Kebab Pizza']
 // console.log(newMenu)
 
@@ -43,6 +44,7 @@ const array = [4, 5, 6]
 const newArray = [...array, 7, 100]
 const [a, b, ...c] = [...newArray]
 console.log(a, b, c)
+console.log(newArray)
 // console.log([1 , 2 , 3 , array])
 
 // let str = 'saghar'
@@ -53,18 +55,21 @@ console.log(a, b, c)
     const newObject = {
         day: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
         openingTimes : function (...days){
+                let result= '';
                     for(let i=0; i<days.length; i++){
                         switch (days[i]) {
                             case 'Mon':
-                                showContents.textContent += 'The food will be saved between 2 and 3 pm' + `<br>`
+                                showContents.innerHTML+= `The food will be saved between 2 and 3 pm <br>`
                                 break;
                             case 'Tue':
-                                showContents.textContent += 'The food will be saved between 4 and 5 pm' + `<br>`
+                                result+= `The food will be saved between 4 and 5 pm <br>`
+                                showContents.innerHTML = result
                                 break;
                             case ('Thur' || 'Fri' || 'Sat' || 'Sun'):
                                 console.log('The food will be saved between 8 and 9 pm')
                             default:
-                                showContents.textContent= 'no food will be served'
+                                result+= `no food will be served<br>`
+                                showContents.innerHTML = result
                         }
                         
                     }
@@ -91,3 +96,5 @@ console.log(a, b, c)
     number(...x)
     
     newObject.orderPizza('Spinach','cabage','Mashroom','Onion');
+
+   

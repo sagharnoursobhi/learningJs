@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //more example
+        const addition = (x , y , z)=>{
+            console.log(`Sum is: ${x + y + z}`)
+        }//spread operator can be used here
+        const arr = [1 , 2 , 3]
+        addition(...arr)//function is supposed to have 3 arguments
+        //or
+        addition.apply(null , arr)
+        
+        const mu = (el1 , ...el2 )=>{
+            console.log([el1 , ...el2])
+            console.log([el1 , el2])
+        }
+        const e = [1 , 2 , 3]
+        const b = 12
+        let numbers = [1,2,3,4,5]
+        let newnumber = 13;
+        console.log('b , ...e')
+        mu(b , ...e)
+        console.log('b,e')
+        mu(b,e)
+        const obj1 = {
+            name:['ali' , 'gholam'],
+            family:'hasani'
+        }
+        const obj2 = {
+            id: 'ftst',
+            name: 'llll'
+        } 
+        console.log('obj2 , ...obj1')
+        mu(obj2.id , ...obj1.name)
+        console.log('obj2 , obj1')
+        mu(obj2.id , obj1.name)
+        console.log(obj2)
+        console.log('--and--')
+
+        const obj = {
+            name: 'sfsfsfs',
+            family: 'h',
+            na: 'f'
+        }
+        console.log(...Object.entries(obj))//== [key , value] , [key , value]
+        console.log([...new Set(...Object.entries(obj))])
+        console.log([...Object.entries(obj)])// == [[key , value] , [key , value]]
+        console.log(new Map([...Object.entries(obj)]))
+        const arr1 = [1,2,3]
+        console.log(...arr1.entries()) //[index , value] , [index , value]
+        
+        
+        const newArray = Object.entries(obj)//
+        console.log(newArray)//array of object's entries
+        console.log(...Object.entries(obj))//spread or separated arrays of object's entries
+        const newset = new Set()
+        newset.add(obj.name)
+        newset.add(obj.family)
+        console.log(newset)
+        console.log(new Set([...Object.entries(obj)]))
+        //set should be converted to a array of arrays
+        const obj3 = {
+            name: 'John',
+            age: 32,
+            id:133245,
+        }
+        
+        
+        
+
+    </script>
+</body>
+</html>

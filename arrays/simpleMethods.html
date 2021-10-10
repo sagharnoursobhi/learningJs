@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const account1 = {
+            owner: 'Jonas Schmedtmann',
+            movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+            interestRate: 1.2, // %
+            pin: 1111,
+            };
+
+            const account2 = {
+            owner: 'Jessica Davis',
+            movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+            interestRate: 1.5,
+            pin: 2222,
+            };
+
+            const account3 = {
+            owner: 'Steven Thomas Williams',
+            movements: [200, -200, 340, -300, -20, 50, 400, -460],
+            interestRate: 0.7,
+            pin: 3333,
+            };
+
+            const account4 = {
+            owner: 'Sarah Smith',
+            movements: [430, 1000, 700, 50, 90],
+            interestRate: 1,
+            pin: 4444,
+            };
+
+            let array = ['a','b','c','d']
+            console.log(array.slice())
+            console.log(array.slice(2))
+            console.log(array.slice(-3 , -1))
+            console.log(array.slice(1,-2))
+            console.log(array.slice(-3))
+            //splice add and remove elements in arrays
+            console.log(array)
+            console.log(array.splice(1))//delete from one
+            array = ['a','b','c','d']
+            array.splice(1,2)//from b delete both b and c(two elements)
+            console.log(array)
+            array.splice(1,2)
+            console.log(array)
+            //array reversing
+            array = ['a','b','c','d']
+            const array2 = ['h' , 'g' , 'f' , 'e']
+            console.log(array2.reverse())
+            //concatenate
+            const letters = array.concat(array2)
+            console.log(letters)
+            //or
+            console.log([...array , ...array2])
+            const joini = [...array , ...array2].join(',')
+            console.log(joini)
+            console.log(typeof(joini))
+            //forEach method
+            const movements= [200, 450, -400, 3000, -650, -130, 70, 1300];
+            for(const movement of movements){
+                if(movement < 0){
+                    console.log(`Customer withdraws ${Math.abs(movement)}$`)
+                }else
+                    console.log(`Customer deposits ${movement}$`)
+            }
+
+            console.log('--forEach--')
+            movements.forEach(movement => {
+                if(movement < 0){
+                    console.log(`Customer withdraws ${Math.abs(movement)}$`)
+                }else
+                    console.log(`Customer deposits ${movement}$`)
+            });
+
+            console.log('get the correct index with for of')
+            for(const [i , mov] of movements.entries()){
+                if(mov<0){
+                    console.log(`Movement ${i+1}:Customer withdraws ${Math.abs(mov)}$`)
+                } else
+                console.log(`Movement ${i+1} : Customer deposits ${mov}$`)
+            }
+
+            console.log('--accessing to index using foreach method--')
+            movements.forEach(function(mov , i , arr){//arragement is important
+                if(mov<0){
+                    console.log(`Movement ${i+1}:Customer withdraws ${Math.abs(mov)}$`)
+                } else
+                console.log(`Movement ${i+1} : Customer deposits ${mov}$`)
+            });
+
+            //the important difference : in foreach you can't break out of the loop but it is possible in for of loop
+
+    </script>
+</body>
+</html>

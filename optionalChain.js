@@ -13,7 +13,7 @@
             open: 11,
             close: 16,
         }
-    }
+    }//obj
     let restaurant = {
         foods: ['pasta', 'pizza', 'hamburger', 'snack'],
         orderFood: (foods) => {
